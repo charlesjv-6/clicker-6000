@@ -96,6 +96,7 @@ def delete_all_locations():
         widget.destroy()
 
     coordinate_entries.clear()
+    locations.clear()
     row_widgets = {}
 
 def add_location():
