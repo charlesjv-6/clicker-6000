@@ -158,17 +158,18 @@ def add_location():
 def on_mouse_wheel(event):
     canvas.yview_scroll(-1 * int(event.delta / 120), "units")
 
-def toggle_action(event):
-    if not stop_event.is_set():
-        start_clicking()
-    else:
-        stop_clicking()
+def start(event):
+    start_clicking()
+
+def stop(event):
+    stop_clicking()
 
 # Initialize the UI
 root = tk.Tk()
 root.title("Clicker 6000")
 root.configure(background=BG, pady=5)
-root.bind("<Alt-KeyPress-2>", toggle_action)
+root.bind("<Alt-KeyPress-2>", start)
+root.bind("<Alt-KeyPress-3>", stop)
 root.attributes("-topmost", True)
 root.resizable(False, False)
 root.geometry("+400+250")  # Format: "widthxheight+x_offset+y_offset"
