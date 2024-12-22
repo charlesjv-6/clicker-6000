@@ -5,6 +5,7 @@ import threading
 import sys
 import time
 from pynput.mouse import Listener
+from pynput.keyboard import Listener as KeyboardListener, Key
 from threading import Event
 
 ENTRY_WIDTH = 5
@@ -158,21 +159,23 @@ def add_location():
 def on_mouse_wheel(event):
     canvas.yview_scroll(-1 * int(event.delta / 120), "units")
 
-def start(event):
-    start_clicking()
-
-def stop(event):
-    stop_clicking()
+def on_press(key):
+    try:
+        if key == Key.end:
+            stop_clicking()
+    except AttributeError:
+        pass
 
 # Initialize the UI
 root = tk.Tk()
 root.title("Clicker 6000")
 root.configure(background=BG, pady=5)
-root.bind("<Alt-KeyPress-2>", start)
-root.bind("<Alt-KeyPress-3>", stop)
 root.attributes("-topmost", True)
 root.resizable(False, False)
 root.geometry("+400+250")  # Format: "widthxheight+x_offset+y_offset"
+
+keyboard_listener = KeyboardListener(on_press=on_press)
+keyboard_listener.start()
 
 # Frames
 interval_frame = tk.LabelFrame(root, text="Interval", padx=5, pady=5, width=FRAME_WIDTH, height=70, bg=BG, fg=FG)
@@ -254,7 +257,7 @@ interval_s_entry.grid(row=0, column=4, padx=4, pady=4)
 interval_s_entry.insert(0, "0")
 interval_ms_entry = tk.Entry(interval_frame, width=ENTRY_WIDTH + 3, border=0, justify="right")
 interval_ms_entry.grid(row=0, column=6, padx=4, pady=4)
-interval_ms_entry.insert(0, "100")
+interval_ms_entry.insert(0, "1000")
 
 # Options Entries
 selected_option = tk.StringVar()

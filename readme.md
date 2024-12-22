@@ -39,7 +39,7 @@ Clicker 6000 is an automation tool that simulates mouse clicks at specified inte
 
 5. **Start and Stop the Clicker**:
    - Click **"START"** to begin the automated clicking. The program will simulate the clicks at the specified intervals and locations.
-   - To stop the clicking process, click **"STOP"**.
+   - To stop the clicking process, click **"STOP"** or press **"End"**.
 
 6. **Notes**:
    - The program will run in the background, so avoid using the mouse during the clicking process.
