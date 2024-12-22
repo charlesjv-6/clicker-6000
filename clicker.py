@@ -295,7 +295,7 @@ repeat_entry = tk.Entry(repeat_amount_frame, width=ENTRY_WIDTH + 2, border=0).gr
 # Start and Stop Buttons
 start_button = tk.Button(button_frame, text="START", command=start_clicking, padx=80, fg=FG, bg="green")
 start_button.grid(row=0, column=4, padx=5, pady=5)
-stop_button = tk.Button(button_frame, text="STOP", command=stop_clicking, state=tk.DISABLED, padx=80, fg=FG, bg="red")
+stop_button = tk.Button(button_frame, text="STOP (Press END key)", command=stop_clicking, state=tk.DISABLED, padx=80, fg=FG, bg="red")
 stop_button.grid(row=0, column=5, padx=5, pady=5)
 
 # Run the UI
