@@ -11,6 +11,7 @@ root.configure(background=BG, pady=5)
 root.attributes("-topmost", True)
 root.resizable(False, False)
 root.geometry("+400+250")
+root.iconbitmap("pycon.ico")
 
 # Frames
 interval_frame = tk.LabelFrame(root, text="Interval", padx=5, pady=5, width=FRAME_WIDTH, height=70, bg=BG, fg=FG)
