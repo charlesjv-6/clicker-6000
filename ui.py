@@ -1,9 +1,12 @@
 import tkinter as tk
+from util import get_resource_path
 
 ENTRY_WIDTH = 5
 FRAME_WIDTH = 350
 BG="#2e2e2e"
 FG="white"
+
+icon_path = get_resource_path("pycon.ico")
 
 root = tk.Tk()
 root.title("Clicker 6000")
@@ -11,8 +14,7 @@ root.configure(background=BG, pady=5)
 root.attributes("-topmost", True)
 root.resizable(False, False)
 root.geometry("+400+250")
-root.iconbitmap("pycon.ico")
-
+root.iconbitmap(icon_path)
 # Frames
 interval_frame = tk.LabelFrame(root, text="Interval", padx=5, pady=5, width=FRAME_WIDTH, height=70, bg=BG, fg=FG)
 interval_frame.grid(row=0, column=0, padx=10, sticky="w")
